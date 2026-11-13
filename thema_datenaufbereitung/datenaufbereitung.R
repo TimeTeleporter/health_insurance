@@ -39,3 +39,8 @@ d.vrl_one<-aggregate(cbind(bestand, praemie, ra, betrag, kobe, netto, belege)~
 d.vrl_one<-d.vrl_one[with(d.vrl_one, order(vnr, behj)),]
 # aggregierte Daten exportieren
 #write.table(d.vrl_one, "daten/daten_vrl_one.csv", sep="\t")
+
+saveRDS(d.vrl, "daten/dvrl.rds")
+saveRDS(d.vrl_one, "daten/dvrl_one.rds")
+nanoparquet::write_parquet(d.vrl, "daten/dvrl.parquet")
+nanoparquet::write_parquet(d.vrl_one, "daten/dvrl_one.parquet")
